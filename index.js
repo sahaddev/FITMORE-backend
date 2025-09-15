@@ -1,6 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import userRoutes from "./routes/user.routes.js";
+import productRoutes from "./routes/product.routes.js";
+
 
 const app = express();
 const PORT = 3000;
@@ -18,7 +20,10 @@ mongoose
     .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Routes
+
+
 app.use("/api/users", userRoutes);
+app.use("/api/product", productRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hello, Node.js + Mongoose server is running!");
